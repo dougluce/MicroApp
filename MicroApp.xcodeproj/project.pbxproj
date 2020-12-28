@@ -7,12 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		Credits.html /* Credits.html in Resources */ = {isa = PBXBuildFile; fileRef = "ref:Credits.html" /* Credits.html */; };
 		Assets.xcassets /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = "ref:Assets.xcassets" /* Assets.xcassets */; };
 		Localizable.strings /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = "ref:Localizable.strings" /* Localizable.strings */; };
 		main.swift /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = "ref:main.swift" /* main.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		"ref:Credits.html" /* Credits.html */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = Credits.html; sourceTree = "<group>"; };
 		"ref:Assets.xcassets" /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		"ref:Info.plist" /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		"ref:Localizable.strings" /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
@@ -50,6 +52,7 @@
 			isa = PBXGroup;
 			children = (
 				"ref:Assets.xcassets" /* Assets.xcassets */,
+				"ref:Credits.html" /* Credits.html */,
 				"ref:Localizable.strings" /* Localizable.strings */,
 				"ref:Info.plist" /* Info.plist */,
 				"ref:MicroApp.entitlements" /* entitlements */,
@@ -115,6 +118,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				Localizable.strings /* Localizable.strings in Resources */,
+				Credits.html /* Credits.html in Resources */,
 				Assets.xcassets /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

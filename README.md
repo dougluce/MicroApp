@@ -2,18 +2,18 @@
 
 A minimal skeleton for a very basic macOS app.
 
-The only current functionality:
+Current functionality:
 
 - Show a taskbar icon.
 - Provide an About page.
 - Provide a Quit option
 
-This is all done via a single source file (main.swift) along a single
-plist (Info.plist), the `Localizable.strings` file (`en` by default),
+This is all done via one Swift source file (`main.swift`) alongside
+`Info.plist`, the `Localizable.strings` file (`en` by default),
 `entitlements`, and a trimmed-down `project.pbxproj` file with a
 single release target.
 
-And an icon, of course.
+There's also an icon and a credits file ready for editing.
 
 ## Building
 

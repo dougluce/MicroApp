@@ -70,69 +70,11 @@ class AppMenu: NSMenu {
   }
   
   @objc private func aboutClicked() {
-    let aboutWindow = NSApp.windows.first { $0 is About } ?? About()
-    Closer.add(aboutWindow)
+    NSApp.orderFrontStandardAboutPanel()
+    NSApplication.shared.activate(ignoringOtherApps: true)
   }
   
   @objc private func quitClicked() {
     NSApplication.shared.terminate(self)
-  }
-}
-
-// Keep track of open windows, set us as accessory when last one is gone.
-class Closer {
-  internal static var windows: Set<NSWindow> = []
-
-  // Add window, make the app active.
-  static func add<T: NSWindow>(_ window: T) {
-    windows.insert(window)
-    NSApp.setActivationPolicy(.regular)
-    NSApplication.shared.activate(ignoringOtherApps: true)
-    window.makeKeyAndOrderFront(nil)
-    NotificationCenter.default.addObserver(
-      self,
-      selector: #selector(windowWillClose),
-      name: NSWindow.willCloseNotification,
-      object: window)
-  }
-
-  @objc static func windowWillClose(_ notification: NSNotification) {
-    let window = notification.object as! NSWindow
-    NotificationCenter.default.removeObserver(self)
-    for win in windows {
-      if win == window {
-        windows.remove(window)
-        if windows.count == 0 { // All gone, hide our menu and dock entry.
-          NSApp.setActivationPolicy(.accessory)
-        }
-        return
-      }
-    }
-  }
-}
-
-final class About: NSWindow {
-  @discardableResult init() {
-    super.init(contentRect: .init(), styleMask: [.closable, .titled, .miniaturizable], backing: .buffered, defer: false)
-    title = NSLocalizedString("About.title", comment: "")
-    isReleasedWhenClosed = false
-    level = .floating
-    contentView = NSHostingView(rootView: AboutContents())
-    center()
-  }
-}
-
-struct AboutContents: View {
-  var image: NSImage
-  init() {
-    image = NSImage(named: "AppIcon")!.copy() as! NSImage
-    image.size = NSSize(width: 256.0, height: 256.0)
-  }
-  var body: some View {
-    VStack {
-      Image(nsImage: image)
-      Text(NSLocalizedString("About.text", comment: ""))
-    }
-      .padding()
   }
 }
