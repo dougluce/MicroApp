@@ -1,0 +1,2 @@
+About.title="About MicroApp";
+About.text="MicroApp is a minimal code sample comprising a task bar icon and an \"about\" window. There is a single Swift file that contains the majority of all necessary code. There is also a folder for assets as well as an initial set of strings in English for localization.";
