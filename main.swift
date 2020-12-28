@@ -1,5 +1,3 @@
-import Cocoa
-import AppKit
 import SwiftUI
 
 let delegate = AppDelegate()
